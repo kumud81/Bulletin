@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulletin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="main-nav container">
+            <a href="#" onclick="reload()" class="company-logo">
+                <h2>Bulletin</h2>
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li class="nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
+                    <li class="nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+                    <li class="nav-item" id="Education" onclick="onNavItemClick('Education')">Education</li>
+                    <li class="nav-item" id="Entertainment" onclick="onNavItemClick('Entertainment')">Entertainment</li>
+                    <li class="nav-item" id="Crime" onclick="onNavItemClick('Crime')">Crime</li>
+                </ul>
+            </div>
+            <div class="search-bar">
+                <input id="search-text" type="text" class="news-input" placeholder="Search news...">
+                <button id="search-button" class="search-button">Search</button>
+                <button id="auth-button" class="auth-button">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="handleLogin()">Login</button>
+            <p id="login-message"></p>
+        </div>
+    </div>
+
+    <main>
+        <div class="cards-container container" id="cards-container"></div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+                <button class="save-article" onclick="toggleSaveArticle(this)">
+                    <i class="far fa-bookmark"></i>
+                </button>
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Left-aligned Slide Bar Menu -->
+    <div id="slide-bar">
+        <div class="slide-bar-header">
+            <h3>News Sources</h3>
+            <button class="close-slide-bar" onclick="toggleSlideBar()">×</button>
+        </div>
+        <ul id="news-sources">
+            <li onclick="fetchNewsBySource('the-times-of-india')">Times of India</li>
+            <li onclick="fetchNewsBySource('the-hindu')">The Hindu</li>
+            <li onclick="fetchNewsBySource('bbc-news')">BBC News</li>
+            <li onclick="fetchNewsBySource('cnn')">CNN</li>
+        </ul>
+    </div>
+
+    <!-- Notes Section -->
+    <div id="notes-section" class="container">
+        <h3>Your Notes</h3>
+        <textarea id="note-input" placeholder="Write your notes here..."></textarea>
+        <button onclick="saveNote()">Save Note</button>
+        <button onclick="downloadNotes()">Download Notes</button>
+        <ul id="notes-list"></ul>
+    </div>
+
+    <!-- Menu Button -->
+    <div id="menu-button" onclick="toggleSlideBar()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
