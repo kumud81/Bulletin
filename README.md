@@ -3,8 +3,13 @@ Bulletin is a sleek, minimal news aggregator web app that brings together the la
 🌟 Features --
 
 🔐 Login & Signup – Secure user login and registration system
+
 🔎 Search Bar – Search for news articles by keywords
+
 📰 Latest News – Curated and updated news feed from multiple sources
+
 🌗 Dark/Light Mode – Toggle between light and dark themes
-🗒️ Notes Section – Take personal notes while browsing news
+
+🗒️ Notes Section – Create and download personal notes to your device while browsing news
+
 📱 Responsive Design – Optimized for all screen sizes
